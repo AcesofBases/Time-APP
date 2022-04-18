@@ -1,0 +1,68 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=">
+  <title>Clock</title>
+  <style> 
+      h1{
+          color:rgb(0, 33, 33);
+      }
+      body {
+      margin: 0;
+      padding: 0;
+      background-size: cover;
+      box-sizing: border-box;
+      font-family: "Lato", sans-serif;
+    }
+    #clock {
+      height: 90vh;
+      width: 100%;
+
+      color: rgb(0, 91, 91);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 100px;
+    }
+  </style>
+</head>
+
+<body background="download.jpg"><center>
+    <h1> Project Request for DAD - Digital Clock <br>(because he can't read his phone or the bottom right of the computer screen) </h1></center>
+  <div id="clock">
+  </div>
+  <img src="https://cdn.imgbin.com/2/3/24/imgbin-emoji-emoticon-smiley-symbol-emoji-5tWzQ9z6xgYVenbeiKWqYgcJ8.jpg">
+
+  <script>
+      function clock() {
+      let date = new Date();
+      let hrs = date.getHours();
+      let mins = date.getMinutes();
+      let secs = date.getSeconds();
+      let period = "AM";
+    
+      if (hrs == 0) hrs = 12;
+      if (hrs > 12) {
+        hrs = hrs - 12;
+        period = "PM";
+      }
+    
+      hrs = hrs < 10 ? `0${hrs}` : hrs;
+      mins = mins < 10 ? `0${mins}` : mins;
+      secs = secs < 10 ? `0${secs}` : secs;
+    
+      let time = `${hrs}:${mins}:${secs} ${period}`;
+      setInterval(clock, 1000);
+      document.getElementById("clock").innerText = time;
+    }
+    
+    clock();
+
+  </script>
+</body>
+
+</html>
